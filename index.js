@@ -44,13 +44,7 @@ const html = Posts => `
         el.dataset.Post = Post.id
         var name = document.createElement("span")
         name.className = Post.completed ? "line-through" : ""
-        name.textContent = Post.name
-        var checkbox = document.createElement("input")
-        checkbox.className = "mx-4"
-        checkbox.type = "checkbox"
-        checkbox.checked = Post.completed ? 1 : 0
-        checkbox.addEventListener('click', completePost)
-        el.appendChild(checkbox)
+        name.textContent = Post.title + " : " + Post.name
         el.appendChild(name)
         PostContainer.appendChild(el)
       })
@@ -58,9 +52,11 @@ const html = Posts => `
     populatePosts()
     var createPost = function() {
       var input = document.querySelector("input[name=name]")
+      var title = document.querySelector("input[name=title]")
       if (input.value.length) {
-        window.Posts = [].concat(Posts, { id: window.Posts.length + 1, name: input.value, completed: false })
+        window.Posts = [].concat(Posts, { id: window.Posts.length + 1, name: input.value, title: title.value })
         input.value = ""
+        title.value = ""
         updatePosts()
       }
     }
