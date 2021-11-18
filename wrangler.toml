@@ -1,0 +1,12 @@
+name = "mypostapp"
+type = "javascript"
+
+account_id = "538126eada9052705308410e0e8c5410"
+workers_dev = true
+route = ""
+zone_id = ""
+compatibility_date = "2021-11-18"
+
+kv_namespaces = [ 
+  { binding = "mykvnamespace", id = "0b3b1bc99d644920a6a85861ff919110" }
+]
